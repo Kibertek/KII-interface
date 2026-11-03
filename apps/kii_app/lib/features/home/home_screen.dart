@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
           builder: (context, constraints) {
             final compact = constraints.maxWidth < 420;
             final presenceSize =
-                (constraints.maxWidth * 0.48).clamp(156.0, 216.0);
+                (constraints.maxWidth * 0.48).clamp(156.0, 216.0).toDouble();
             final horizontalPadding = compact ? 22.0 : 32.0;
 
             return SingleChildScrollView(
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
               ),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
-                  minHeight: constraints.maxHeight - 48,
+                  minHeight: (constraints.maxHeight - 48).clamp(0.0, double.infinity),
                 ),
                 child: Center(
                   child: ConstrainedBox(
